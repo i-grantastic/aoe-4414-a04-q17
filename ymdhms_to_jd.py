@@ -47,14 +47,14 @@ else:
 ### script below this line ###
 
 # julian date
-jd = day - 32075 + 1461*(year + 4800 + (month - 14)//12)//4\
-+ 367*(month - 2 - (month - 14)//12*12)//12\
-- 3*((year + 4900 + (month - 14)//12)//100)//4
+jd = day - 32075 + 1461*(year + 4800 + (month - 14)/12)/4\
++ 367*(month - 2 - (month - 14)/12*12)/12\
+- 3*((year + 4900 + (month - 14)/12)/100)/4
 
 # fractional julian date
-jd_midnight = jd - 0.5
-d_frac = (second + 60*(minute + 60*hour))//86400
-jd_frac = int(jd_midnight + d_frac - 1)
+jd_midnight = int(jd) - 0.5
+d_frac = (second + 60*(minute + 60*hour))/86400
+jd_frac = jd_midnight + d_frac
 
 # print
 print(jd_frac)
